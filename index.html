@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mother's Day</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="bg"></div>
+    <header>
+        <div class="logo">
+            <img src="assets/logo.png" alt="Cook">
+            <span>Recipe Saver</span>
+        </div>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="recipes.html">Recipes</a>
+            <a href="add-recipe.html">Add Recipe</a>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <section class="hero">
+            <div class="hero-copy">
+                <span class="eyebrow">Mother's Day Special</span>
+                <h1>Przechowuj ulubione przepisy i celebruj każdą chwilę.</h1>
+                <p>Z łatwością dodawaj, przeglądaj i odkrywaj inspiracje na rodzinny obiad lub słodki deser.</p>
+                <div class="hero-actions">
+                    <a class="btn" href="recipes.html">Przeglądaj przepisy</a>
+                    <a class="btn btn-secondary" href="add-recipe.html">Dodaj przepis</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <h2>Smak mamy w jednym miejscu</h2>
+                <p>Twórz piękną kolekcję przepisów, która będzie inspirować domowe gotowanie przez cały rok.</p>
+                <div class="hero-stats">
+                    <div>
+                        <strong id="recipesCount">...</strong>
+                        <span>Przepisy</span>
+                    </div>
+                    <div>
+                        <strong>5</strong>
+                        <span>Minutowe pomysły</span>
+                    </div>
+                    <div>
+                        <strong>100%</strong>
+                        <span>Domowy smak</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <article class="feature-card">
+                <h3>Łatwe w użyciu</h3>
+                <p>Przechowuj swoje ulubione pomysły w jednym miejscu dzięki prostej i przyjaznej nawigacji.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Przepisy dla mamy</h3>
+                <p>Zbuduj kolekcję dań, które przypomną rodzinne chwile i stworzą nową tradycję.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Elegancki motyw</h3>
+                <p>Delikatna paleta kolorów i subtelne detale tworzą ciepły nastrój strony.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Recipe Saver • Designed for Mother's Day • <span class="year"></span></p>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipes</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="assets/logo.png" alt="">
+    <span>Recipe Saver</span>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="recipes.html" class="active">Recipes</a>
+    <a href="add-recipe.html">Add Recipe</a>
+  </nav>
+</header>
+
+<main class="page-content">
+
+<section class="page-hero split-hero">
+
+  <div class="hero-image-side">
+
+    <div id="heroGallery"></div>
+
+    <div class="hero-fade"></div>
+
+  </div>
+
+  <div class="hero-content-side">
+
+    <span>Przepisy</span>
+
+    <h1>Znajdź idealny przepis do zrobienia.</h1>
+
+    <p>
+      Gotowe pomysły na rodzinny obiad,
+      słodki deser i zdrowe dodatki -
+      wszystko w jednym miejscu.
+    </p>
+
+  </div>
+
+</section>
+
+
+  <section class="recipes-grid" id="recipesGrid"></section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+<script src="js/recipes.js"></script>
+
+<script src="js/hero-gallery.js"></script>
+
+</body>
+</html>

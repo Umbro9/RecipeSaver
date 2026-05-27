@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipe - Mother's Day</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg"></div>
+    <header>
+        <div class="logo">
+            <img src="assets/logo.png" alt="Cook">
+            <span>Recipe Saver</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="recipes.html">Recipes</a>
+            <a href="add-recipe.html" class="active">Add Recipe</a>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <section class="page-hero">
+            <span>Dodaj przepis</span>
+            <h1>Podziel się pysznym pomysłem.</h1>
+            <p>Wpisz składniki, sposób przygotowania i stwórz nowy przepis, który będzie inspiracją dla Twojej rodziny.</p>
+        </section>
+
+        <section class="form-panel">
+            <form class="recipe-form" id="addRecipeForm">
+                <label>
+                    <span>*Nazwa przepisu</span>
+                    <input type="text" name="title" required placeholder="np. Babcia szarlotka">
+                </label>
+                <label>
+                    <span>*Składniki</span>
+
+                    <textarea name="ingredients" required placeholder="np. jabłka, mąka, cukier, cynamon"></textarea>
+                </label>
+                <label>
+                    <span>*Przygotowanie</span>
+                    <textarea name="instructions" required placeholder="Opisz kolejne kroki przygotowania"></textarea>
+                </label>
+                <label>
+                <span>Zdjęcie przepisu</span>
+
+                <input
+                    type="file"
+                    name="image"
+                    accept="image/*">   
+                </label>
+                <button type="submit" class="btn">Zapisz przepis</button>
+                <p class="form-message" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Recipe Saver • Designed for Mother's Day • <span class="year"></span></p>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+<script src="js/add-recipe.js"></script>
+</body>
+</html>
