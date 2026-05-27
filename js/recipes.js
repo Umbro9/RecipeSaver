@@ -6,7 +6,7 @@ async function loadRecipes() {
     if (!grid) return
 
     const { data, error } =
-      await sb
+      await window.sb
         .from('recipes')
         .select('*')
         .order('created_at', {
@@ -22,19 +22,8 @@ async function loadRecipes() {
 
     data.forEach(recipe => {
 
-        let imageUrl =
-          'default-food.jpg'
-
-        if (recipe.image_url) {
-
-            const { data } =
-              sb.storage
-                .from('recipes-images')
-                .getPublicUrl(recipe.image_url)
-
-            imageUrl =
-              data.publicUrl
-        }
+        const imageUrl =
+          window.getRecipeImageUrl(recipe.image_url)
 
         const shortText =
           recipe.instructions?.length > 120

@@ -1,8 +1,3 @@
-const sb = supabase.createClient(
-  'https://tkhwuraiwbghiocagymn.supabase.co',
-  'sb_publishable_1HLJY29Y0nrs8g4cwCMGOg_nzwoKJSg'
-)
-
 // 🔥 helper do backgroundu body
 function setBodyBg(url) {
   document.body.style.backgroundImage = `url(${url})`
@@ -13,7 +8,7 @@ async function loadHeroGallery() {
   const container = document.getElementById('heroGallery')
   if (!container) return
 
-  const { data, error } = await sb
+  const { data, error } = await window.sb
     .from('recipes')
     .select('image_url')
     .order('created_at', { ascending: false })
@@ -25,11 +20,7 @@ async function loadHeroGallery() {
 
   let images = data
     .filter(r => r.image_url)
-    .map(r =>
-      sb.storage
-        .from('recipes-images')
-        .getPublicUrl(r.image_url).data.publicUrl
-    )
+    .map(r => window.getRecipeImageUrl(r.image_url))
     .filter(Boolean)
 
   images = [...new Set(images)].slice(0, 5)

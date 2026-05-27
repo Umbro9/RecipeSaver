@@ -12,7 +12,7 @@ async function initEditRecipe() {
       params.get('id')
 
     const { data, error } =
-      await sb
+      await window.sb
         .from('recipes')
         .select('*')
         .eq('id', recipeId)
@@ -48,7 +48,7 @@ async function initEditRecipe() {
         const instructions =
           formData.get('instructions')
 
-        await sb
+        await window.sb
           .from('recipes')
           .update({
               title,

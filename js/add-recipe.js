@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
               `${Date.now()}-${imageFile.name}`
 
             const { error: uploadError } =
-              await sb.storage
+              await window.sb.storage
                 .from('recipes-images')
                 .upload(fileName, imageFile)
 
@@ -46,20 +46,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             imagePath = fileName
         }
-const { data: urlData } = sb
-  .storage
-  .from('recipes-images')
-  .getPublicUrl(imagePath)
-
-const imageUrl = urlData.publicUrl
-        const { error } = await sb
+        const { error } = await window.sb
             .from('recipes')
             .insert([
                 {
                     title,
                     ingredients,
                     instructions,
-                    image_url: imageUrl
+                    image_url: imagePath
                 }
             ])
 

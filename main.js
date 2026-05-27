@@ -1,14 +1,9 @@
-const supabaseUrl = 'https://tkhwuraiwbghiocagymn.supabase.co'
-const supabaseKey = 'sb_publishable_1HLJY29Y0nrs8g4cwCMGOg_nzwoKJSg'
-
-const sb = supabase.createClient(supabaseUrl, supabaseKey)
-
 async function loadRecipesCount() {
   const recipesCount = document.getElementById('recipesCount')
 
   if (!recipesCount) return
 
-  const { count, error } = await sb
+  const { count, error } = await window.sb
     .from('recipes')
     .select('id', {
       count: 'exact',

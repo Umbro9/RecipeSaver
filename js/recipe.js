@@ -12,7 +12,7 @@ async function loadSingleRecipe() {
       params.get('id')
 
     const { data, error } =
-      await sb
+      await window.sb
         .from('recipes')
         .select('*')
         .eq('id', recipeId)
@@ -23,19 +23,8 @@ async function loadSingleRecipe() {
         return
     }
 
-    let imageUrl =
-      'assets/default-food.jpg'
-
-    if (data.image_url) {
-
-        const { data: imageData } =
-          sb.storage
-            .from('recipe-images')
-            .getPublicUrl(data.image_url)
-
-        imageUrl =
-          imageData.publicUrl
-    }
+    const imageUrl =
+      window.getRecipeImageUrl(data.image_url)
 
     container.innerHTML = `
 
