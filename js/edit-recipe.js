@@ -5,6 +5,12 @@ async function initEditRecipe() {
 
     if (!form) return
 
+    const imageInput =
+      document.getElementById('imageInput')
+
+    const imagePreview =
+      document.getElementById('imagePreview')
+
     const params =
       new URLSearchParams(window.location.search)
 
@@ -22,6 +28,28 @@ async function initEditRecipe() {
         console.log(error)
         return
     }
+    const deleteBtn =
+  document.getElementById('deleteBtn')
+
+deleteBtn?.addEventListener('click', async () => {
+
+    if (!confirm('Na pewno usunąć przepis?')) {
+        return
+    }
+
+    const { error } =
+      await window.sb
+        .from('recipes')
+        .delete()
+        .eq('id', recipeId)
+
+    if (error) {
+        console.log(error)
+        return
+    }
+
+    window.location.href = 'recipes.html'
+})
 
     form.title.value =
       data.title
@@ -31,6 +59,29 @@ async function initEditRecipe() {
 
     form.instructions.value =
       data.instructions
+
+    // Load current image
+    if (data.image_url) {
+        const imageUrl = window.getRecipeImageUrl(data.image_url)
+        imagePreview.src = imageUrl
+        imagePreview.classList.add('show')
+    }
+
+    // Handle image preview on file select
+    imageInput.addEventListener('change', (e) => {
+        const file = e.target.files[0]
+        
+        if (file) {
+            const reader = new FileReader()
+            
+            reader.onload = (event) => {
+                imagePreview.src = event.target.result
+                imagePreview.classList.add('show')
+            }
+            
+            reader.readAsDataURL(file)
+        }
+    })
 
     form.addEventListener('submit', async (e) => {
 
@@ -48,12 +99,36 @@ async function initEditRecipe() {
         const instructions =
           formData.get('instructions')
 
+        const imageFile =
+          imageInput.files[0]
+
+        let imagePath = data.image_url
+
+        // Upload new image if selected
+        if (imageFile) {
+            const fileName =
+              `${Date.now()}-${imageFile.name}`
+
+            const { error: uploadError } =
+              await window.sb.storage
+                .from('recipes-images')
+                .upload(fileName, imageFile)
+
+            if (uploadError) {
+                console.log(uploadError)
+                return
+            }
+
+            imagePath = fileName
+        }
+
         await window.sb
           .from('recipes')
           .update({
               title,
               ingredients,
-              instructions
+              instructions,
+              image_url: imagePath
           })
           .eq('id', recipeId)
 
