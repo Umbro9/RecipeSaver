@@ -28,11 +28,9 @@ async function initEditRecipe() {
         console.log(error)
         return
     }
-<<<<<<< HEAD
-const deleteBtn =
-=======
+
     const deleteBtn =
->>>>>>> a097207e59de8d990a9ac3971bad9572a03bcd2a
+
   document.getElementById('deleteBtn')
 
 deleteBtn?.addEventListener('click', async () => {
@@ -41,11 +39,9 @@ deleteBtn?.addEventListener('click', async () => {
         return
     }
 
-<<<<<<< HEAD
+
     const imagePath = data.image_url
 
-=======
->>>>>>> a097207e59de8d990a9ac3971bad9572a03bcd2a
     const { error } =
       await window.sb
         .from('recipes')
@@ -57,7 +53,6 @@ deleteBtn?.addEventListener('click', async () => {
         return
     }
 
-<<<<<<< HEAD
     if (imagePath) {
         const { error: storageError } =
           await window.sb.storage
@@ -69,8 +64,6 @@ deleteBtn?.addEventListener('click', async () => {
         }
     }
 
-=======
->>>>>>> a097207e59de8d990a9ac3971bad9572a03bcd2a
     window.location.href = 'recipes.html'
 })
 
@@ -84,20 +77,14 @@ deleteBtn?.addEventListener('click', async () => {
       data.instructions
 
     // Load current image
-<<<<<<< HEAD
+
 if (data.image_url) {
     const imageUrl = window.getRecipeImageUrl(data.image_url)
 
     imagePreview.src = imageUrl
     imagePreview.style.display = 'block'
 }
-=======
-    if (data.image_url) {
-        const imageUrl = window.getRecipeImageUrl(data.image_url)
-        imagePreview.src = imageUrl
-        imagePreview.classList.add('show')
-    }
->>>>>>> a097207e59de8d990a9ac3971bad9572a03bcd2a
+
 
     // Handle image preview on file select
     imageInput.addEventListener('change', (e) => {
@@ -106,17 +93,11 @@ if (data.image_url) {
         if (file) {
             const reader = new FileReader()
             
-<<<<<<< HEAD
               reader.onload = (event) => {
                   imagePreview.src = event.target.result
                   imagePreview.style.display = 'block'
               }
-=======
-            reader.onload = (event) => {
-                imagePreview.src = event.target.result
-                imagePreview.classList.add('show')
-            }
->>>>>>> a097207e59de8d990a9ac3971bad9572a03bcd2a
+
             
             reader.readAsDataURL(file)
         }
