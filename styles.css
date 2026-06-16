@@ -34,7 +34,6 @@ nav a {
 .page-hero,
 .hero,
 .feature-card,
-.form-panel,
 .recipe-card,
 .recipe-full-card {
   border: 1px solid var(--line);
@@ -240,6 +239,14 @@ nav a {
 .recipe-form textarea {
   min-height: 52px;
   border-radius: 16px;
+      background: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-color: rgba(111, 136, 116, 0.55);
+}
+
+.recipe-form textarea {
+  padding-top: 14px;
+  resize:none;
 }
 
 .recipe-form input:focus,
@@ -416,4 +423,33 @@ nav a {
   nav a {
     padding-inline: 6px;
   }
+}
+
+
+input[type="file"]::file-selector-button {
+    padding: 12px 18px;
+
+    border: 1px solid rgba(217, 127, 146, 0.25);
+    border-radius: 16px;
+
+    background: #fff;
+    color: var(--accent-strong);
+
+    font: inherit;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 12px 24px rgba(217, 127, 146, 0.12);
+
+    transition: all 0.2s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: var(--accent-strong);
+    color: white;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 18px 30px rgba(217, 127, 146, 0.24);
 }

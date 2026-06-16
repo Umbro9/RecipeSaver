@@ -313,8 +313,6 @@ nav a.active {
     margin-top: 28px;
     padding: 28px;
     border-radius: 32px;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: var(--shadow);
 }
 
 .recipe-form {

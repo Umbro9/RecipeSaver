@@ -42,17 +42,38 @@
 
     <label>
       <span>Składniki</span>
-      <textarea name="ingredients" placeholder="Składniki"></textarea>
+      <textarea name="ingredients" placeholder="Składniki" style="min-height: 200px;"></textarea>
     </label>
 
     <label>
       <span>Przygotowanie</span>
-      <textarea name="instructions" placeholder="Przygotowanie"></textarea>
+      <textarea name="instructions" placeholder="Przygotowanie" style="min-height: 400px;"></textarea>
     </label>
+    <div class="image-upload-section">
+      <label>
+        <span>Zdjęcie przepisu</span>
+        <div class="image-input-wrapper">
+          <input
+              type="file"
+              name="image"
+              id="imageInput"
+              accept="image/*" style="margin-bottom: 20px;">
+          <button type="submit" class="btn">
+            Zapisz zmiany
+          </button>
+          <button type="button" id="deleteBtn" class="btn" style="float: right;">
+              Usuń przepis
+          </button>
+          <img
+  id="imagePreview"
+  class="image-preview"
+  alt="Podgląd zdjęcia"
+  style="display:none; margin:20px 0; border-radius:30px;"
+>
 
-    <button type="submit" class="btn">
-      Zapisz zmiany
-    </button>
+        </div>
+      </label>
+    </div>
 
   </form>
 
